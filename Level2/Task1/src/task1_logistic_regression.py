@@ -1,7 +1,7 @@
 """
 Logistic Regression Churn Training Pipeline
 
-Author: Chinedu
+Author: Chinedu Ogbunobi
 
 Description:
 A modular machine learning pipeline that loads pre-split churn datasets,
