@@ -47,8 +47,8 @@ Returns:
 Raises:
     FileNotFoundError: If either dataset cannot be found.
 """
-    train_path = base_dir /train_filename
-    test_path = base_dir / test_filename
+    train_path = base_dir / "data" / train_filename
+    test_path = base_dir / "data" / test_filename
     
     if not train_path.exists():
         raise FileNotFoundError(f"Training dataset not found: {train_path}")
@@ -145,8 +145,8 @@ def evaluate_and_export(
     y_probs = model.predict_proba(X_test)[:, 1]
 
     # Save the trained model and fitted scaler for future inference.
-    model_path = base_dir / "logistic_model.pkl"
-    scaler_path = base_dir / "standard_scaler.pkl"
+    model_path = base_dir / "models" /  "logistic_model.pkl"
+    scaler_path = base_dir / "models" / "standard_scaler.pkl"
 
     joblib.dump(model, model_path)
     joblib.dump(scaler, scaler_path)
@@ -186,7 +186,7 @@ def evaluate_and_export(
     plt.grid(True, linestyle=':', alpha=0.6)
     
     plt.tight_layout()
-    output_path = base_dir / "roc_curve.png"
+    output_path = base_dir / "images" / "roc_curve.png"
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.show()
     plt.close()
