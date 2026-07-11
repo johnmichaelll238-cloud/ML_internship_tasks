@@ -34,13 +34,6 @@ def evaluate_candidate_models(
 
 
 def select_best_model(evaluation_results):
-    """Return the result dict with the highest test accuracy."""
-    if not evaluation_results:
-        raise ValueError("evaluation_results is empty")
-
-    return max(evaluation_results, key=lambda result: result["test_accuracy"])
-
-def select_best_model(evaluation_results):
     """
     Selects best performing model based on test set performance and accuracy
     RETURNS:

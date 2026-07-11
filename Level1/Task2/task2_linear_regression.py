@@ -19,7 +19,7 @@ from sklearn.model_selection import train_test_split
 # Configuration
 # ==========================
 
-DATA_PATH = Path("Level1") / ("Task2") /"housing_prices.csv"
+DATA_PATH = Path("Level1") / ("Task2") / "housing_prices.csv"
 
 ROOMS_COL = 5
 PRICE_COL = 13
@@ -39,7 +39,7 @@ def run_regression_pipeline() -> tuple[LinearRegression, float, float]:
     print("=== [1/4] Loading Space-Separated Dataset ===")
 
     try:
-        df = pd.read_csv(DATA_PATH, header=None, sep=r"\s+")
+        df = pd.read_csv("housing_prices.csv", header=None, sep=r"\s+")
     except FileNotFoundError:
         print(f"[ERROR] Dataset not found: {DATA_PATH}")
         raise
@@ -82,7 +82,7 @@ def run_regression_pipeline() -> tuple[LinearRegression, float, float]:
     print(f"    -> Bias (Intercept): {bias:.4f}")
 
     print("\nRegression Equation:")
-    print(f"    Price = ({weight:.4f} × Rooms) + ({bias:.4f})")
+    print(f"    Price = ({weight:.4f} × Rooms) + ({bias:.4f})") 
 
     print("\n=== [4/4] Evaluating Model ===")
 
